@@ -1,7 +1,7 @@
 const { Thought, User } = require('../models/');
 
 const thoughtController = {
-    async getAllThoughts(req, res) {
+    async AllThoughts(req, res) {
         try {
             const thoughts = await Thought.find({});
             res.json(thoughts);
@@ -10,7 +10,7 @@ const thoughtController = {
         }
     },
 
-    async getSingleThought(req, res) {
+    async getOneThought(req, res) {
         try {
             const thought = await Thought.findById(req.params.id);
             if (!thought) {

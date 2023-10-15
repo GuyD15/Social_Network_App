@@ -1,6 +1,6 @@
-const { User, Thought } = require('../models/');
+const { User, Thought } = require('../models');
 
-const userController = {
+const UserAdmin = {
     async getAllUsers(req, res) {
         try {
             const users = await User.find({});
@@ -10,7 +10,7 @@ const userController = {
         }
     },
 
-    async getSingleUser(req, res) {
+    async getOneUser(req, res) {
         try {
             const user = await User.findById(req.params.id);
             if (!user) {
@@ -54,7 +54,7 @@ const userController = {
                 res.status(404).json({ message: 'User not found!' });
                 return;
             }
-            res.json({ message: 'User and associated thoughts deleted!' });
+            res.json({ message: 'User and their thoughts deleted!' });
         } catch (err) {
             res.status(500).json(err);
         }
@@ -95,4 +95,4 @@ const userController = {
     }
 };
 
-module.exports = userController;
+module.exports = UserAdmin;
